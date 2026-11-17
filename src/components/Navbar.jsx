@@ -23,7 +23,7 @@ export default function Navbar({ isAdmin = false }) {
   }
 
   return (
-    <header className="navbar">
+    <header className={`navbar ${isAdmin ? "navbar-admin" : ""}`}>
       <div className="navbar-container">
         <Link to={isAdmin ? "/admin" : "/"} className="navbar-logo" onClick={closeMenu}>
           <div className="logo-icon">RR</div>
