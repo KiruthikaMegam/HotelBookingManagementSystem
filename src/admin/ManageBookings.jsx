@@ -16,7 +16,7 @@ export default function ManageBookings() {
     const room = rooms.find((item) => item.id === Number(booking.roomId));
 
     const guestName = booking.guestName || booking.guest?.name || "";
-    const roomName = room ? room.name : "";
+    const roomName = room ? room.name : booking.roomName || "";
 
     const matchesSearch =
       guestName.toLowerCase().includes(search.toLowerCase()) ||
@@ -284,7 +284,17 @@ export default function ManageBookings() {
 
               <p>
                 <span>Room</span>
-                <strong>{getRoomName(selectedBooking.roomId)}</strong>
+                <strong>{selectedBooking.roomName || getRoomName(selectedBooking.roomId)}</strong>
+              </p>
+
+              <p>
+                <span>Guest Count</span>
+                <strong>{Number(selectedBooking.adults || 0)} Adults, {Number(selectedBooking.children || 0)} Children ({Number(selectedBooking.guests || 0)} Total)</strong>
+              </p>
+
+              <p>
+                <span>Guest Address</span>
+                <strong>{selectedBooking.address || selectedBooking.guest?.address || "-"}</strong>
               </p>
 
               <p>
@@ -298,10 +308,35 @@ export default function ManageBookings() {
               </p>
 
               <p>
+                <span>Price Per Night</span>
+                <strong>₹{Number(selectedBooking.pricePerNight || 0).toLocaleString("en-IN")}</strong>
+              </p>
+
+              <p>
+                <span>Room Amount</span>
+                <strong>₹{Number(selectedBooking.roomTotal || selectedBooking.totalPrice || 0).toLocaleString("en-IN")}</strong>
+              </p>
+
+              <p>
+                <span>Service Fee</span>
+                <strong>₹{Number(selectedBooking.serviceFee || 0).toLocaleString("en-IN")}</strong>
+              </p>
+
+              <p>
                 <span>Total Amount</span>
                 <strong>
                   ₹{Number(selectedBooking.totalPrice || 0).toLocaleString("en-IN")}
                 </strong>
+              </p>
+
+              <p>
+                <span>Special Requests</span>
+                <strong>{selectedBooking.requests || "No special requests"}</strong>
+              </p>
+
+              <p>
+                <span>Booking Created</span>
+                <strong>{selectedBooking.createdAt ? new Date(selectedBooking.createdAt).toLocaleString("en-IN") : "-"}</strong>
               </p>
 
               <p>
