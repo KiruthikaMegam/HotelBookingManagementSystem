@@ -418,7 +418,128 @@ export const initialRooms = [
   }
 ];
 
-export const initialBookings = [];
+export const initialBookings = [
+  {
+    id: 1,
+    customerId: 1,
+    customerName: "Arun Kumar",
+    customerEmail: "arun@gmail.com",
+    customerPhone: "9876543210",
+    roomId: 1,
+    roomName: "Deluxe Room",
+    checkIn: "2026-11-20",
+    checkOut: "2026-11-22",
+    guests: 2,
+    totalAmount: 5000,
+    paymentStatus: "Paid",
+    bookingStatus: "Confirmed"
+  },
+  {
+    id: 2,
+    customerId: 2,
+    customerName: "Priya Sharma",
+    customerEmail: "priya@gmail.com",
+    customerPhone: "9876543211",
+    roomId: 2,
+    roomName: "Standard Room",
+    checkIn: "2026-11-21",
+    checkOut: "2026-11-23",
+    guests: 2,
+    totalAmount: 3000,
+    paymentStatus: "Pending",
+    bookingStatus: "Pending"
+  },
+  {
+    id: 3,
+    customerId: 3,
+    customerName: "Rahul Raj",
+    customerEmail: "rahul@gmail.com",
+    customerPhone: "9876543212",
+    roomId: 3,
+    roomName: "Luxury Suite",
+    checkIn: "2026-11-22",
+    checkOut: "2026-11-25",
+    guests: 3,
+    totalAmount: 9000,
+    paymentStatus: "Paid",
+    bookingStatus: "Confirmed"
+  },
+  {
+    id: 4,
+    customerId: 4,
+    customerName: "Sneha Devi",
+    customerEmail: "sneha@gmail.com",
+    customerPhone: "9876543213",
+    roomId: 4,
+    roomName: "Family Room",
+    checkIn: "2026-11-24",
+    checkOut: "2026-11-26",
+    guests: 4,
+    totalAmount: 7000,
+    paymentStatus: "Pending",
+    bookingStatus: "Pending"
+  },
+  {
+    id: 5,
+    customerId: 5,
+    customerName: "Vijay Kumar",
+    customerEmail: "vijay@gmail.com",
+    customerPhone: "9876543214",
+    roomId: 5,
+    roomName: "Premium Room",
+    checkIn: "2026-11-15",
+    checkOut: "2026-11-17",
+    guests: 2,
+    totalAmount: 6000,
+    paymentStatus: "Paid",
+    bookingStatus: "Completed"
+  },
+  {
+    id: 6,
+    customerId: 6,
+    customerName: "Divya Lakshmi",
+    customerEmail: "divya@gmail.com",
+    customerPhone: "9876543215",
+    roomId: 6,
+    roomName: "Deluxe Room",
+    checkIn: "2026-11-18",
+    checkOut: "2026-11-20",
+    guests: 2,
+    totalAmount: 5000,
+    paymentStatus: "Paid",
+    bookingStatus: "Confirmed"
+  },
+  {
+    id: 7,
+    customerId: 7,
+    customerName: "Karthik S",
+    customerEmail: "karthik@gmail.com",
+    customerPhone: "9876543216",
+    roomId: 7,
+    roomName: "Standard Room",
+    checkIn: "2026-11-25",
+    checkOut: "2026-11-27",
+    guests: 1,
+    totalAmount: 3000,
+    paymentStatus: "Refunded",
+    bookingStatus: "Cancelled"
+  },
+  {
+    id: 8,
+    customerId: 8,
+    customerName: "Meena Rani",
+    customerEmail: "meena@gmail.com",
+    customerPhone: "9876543217",
+    roomId: 8,
+    roomName: "Luxury Suite",
+    checkIn: "2026-11-28",
+    checkOut: "2026-11-30",
+    guests: 3,
+    totalAmount: 9000,
+    paymentStatus: "Paid",
+    bookingStatus: "Confirmed"
+  }
+];
 
 export const initialAdmin = {
   name: "RR Resort Admin",
