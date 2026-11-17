@@ -276,7 +276,7 @@ export const initialRooms = [
       "Room Service",
       "Breakfast Included"
     ]
-  }
+  },
 
   {
     id: 9,
