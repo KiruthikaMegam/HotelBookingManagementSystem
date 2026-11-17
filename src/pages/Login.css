@@ -214,3 +214,154 @@
     font-size: 30px;
   }
 }
+
+.customer-auth-form-area {
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.customer-auth-form {
+  max-width: 460px;
+  padding: 8px 0 24px;
+}
+
+.customer-auth-logo {
+  margin-bottom: 30px;
+}
+
+.customer-auth-description {
+  margin-bottom: 22px;
+}
+
+.unified-login-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 24px 0 18px;
+  color: #9aa9a5;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.unified-login-divider::before,
+.unified-login-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #e5eeeb;
+}
+
+.admin-login-entry {
+  padding: 16px;
+  border: 1px solid #dce8e5;
+  border-radius: 9px;
+  background: #f8fbfa;
+}
+
+.admin-login-entry strong {
+  color: #183b39;
+  font-size: 14px;
+}
+
+.admin-login-entry p {
+  margin-top: 5px;
+  color: #84938f;
+  font-size: 12px;
+}
+
+.admin-login-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 13px;
+  padding: 11px 13px;
+  border: 1px solid #0d7775;
+  border-radius: 6px;
+  background: white;
+  color: #0d7775;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-login-toggle span {
+  font-size: 19px;
+}
+
+.unified-admin-form {
+  margin-top: 16px;
+  padding: 20px;
+  border: 1px solid #dce8e5;
+  border-radius: 9px;
+  background: #ffffff;
+  animation: fadeIn 0.3s ease;
+}
+
+.unified-admin-form h3 {
+  color: #183b39;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+}
+
+.unified-admin-form > p {
+  color: #84938f;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 7px 0 18px;
+}
+
+.admin-demo-credentials {
+  padding: 13px;
+  margin: 4px 0 14px;
+  border-radius: 7px;
+  background: #eef7f5;
+  color: #38534f;
+}
+
+.admin-demo-credentials > span {
+  display: block;
+  margin-bottom: 8px;
+  color: #0d7775;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.admin-demo-credentials p {
+  margin: 5px 0;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.admin-demo-credentials button {
+  margin-top: 9px;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 5px;
+  background: #d8ebe7;
+  color: #0d7775;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .customer-auth-form-area {
+    align-items: center;
+  }
+
+  .customer-auth-form {
+    max-width: 460px;
+  }
+}
+
+@media (max-width: 480px) {
+  .customer-auth-form-area {
+    padding: 28px 18px;
+  }
+
+  .unified-admin-form {
+    padding: 16px;
+  }
+}
