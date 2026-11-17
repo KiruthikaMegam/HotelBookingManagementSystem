@@ -210,3 +210,21 @@
     margin-top: 15px;
   }
 }
+
+
+/* Keep the expanded admin navigation balanced on desktop. */
+.navbar-admin .navbar-links {
+  gap: 19px;
+}
+
+.navbar-admin .navbar-links > a {
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .navbar-admin .navbar-links {
+    gap: 0;
+    max-height: calc(100vh - 75px);
+    overflow-y: auto;
+  }
+}

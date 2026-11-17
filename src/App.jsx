@@ -26,29 +26,41 @@ import AdminSettings from "./admin/AdminSettings";
 
 import "./App.css";
 
+function PublicLayout({ children }) {
+  const isAdmin = localStorage.getItem("rrAdminLoggedIn") === "true";
+
+  return (
+    <>
+      <Navbar isAdmin={isAdmin} />
+      {children}
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   return (
     <HotelProvider>
       <div className="app">
         <Routes>
-          <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
-          <Route path="/rooms" element={<><Navbar /><Rooms /><Footer /></>} />
-          <Route path="/rooms/:id" element={<><Navbar /><RoomDetails /><Footer /></>} />
-          <Route path="/booking/:id" element={<><Navbar /><Booking /><Footer /></>} />
-          <Route path="/confirmation" element={<><Navbar /><Confirmation /><Footer /></>} />
+          <Route path="/" element={<PublicLayout><Home /></PublicLayout>} />
+          <Route path="/rooms" element={<PublicLayout><Rooms /></PublicLayout>} />
+          <Route path="/rooms/:id" element={<PublicLayout><RoomDetails /></PublicLayout>} />
+          <Route path="/booking/:id" element={<PublicLayout><Booking /></PublicLayout>} />
+          <Route path="/confirmation" element={<PublicLayout><Confirmation /></PublicLayout>} />
 
-          <Route path="/login" element={<><Navbar /><Login /><Footer /></>} />
+          <Route path="/login" element={<PublicLayout><Login /></PublicLayout>} />
           <Route path="/admin/login" element={<Navigate to="/login" replace />} />
-          <Route path="/register" element={<><Navbar /><Register /><Footer /></>} />
+          <Route path="/register" element={<PublicLayout><Register /></PublicLayout>} />
 
-          <Route path="/my-bookings" element={<><Navbar /><MyBookings /><Footer /></>} />
+          <Route path="/my-bookings" element={<PublicLayout><MyBookings /></PublicLayout>} />
 
           <Route element={<ProtectedCustomerRoute />}>
-            <Route path="/profile" element={<><Navbar /><Profile /><Footer /></>} />
+            <Route path="/profile" element={<PublicLayout><Profile /></PublicLayout>} />
           </Route>
 
-          <Route path="/about" element={<><Navbar /><About /><Footer /></>} />
-          <Route path="/contact" element={<><Navbar /><Contact /><Footer /></>} />
+          <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
+          <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
 
           <Route element={<ProtectedAdminRoute />}>
             <Route path="/admin" element={<AdminLayout />}>

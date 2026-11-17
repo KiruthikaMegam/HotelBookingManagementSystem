@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "./AdminLayout.css";
 
 export default function AdminLayout() {
@@ -9,6 +10,7 @@ export default function AdminLayout() {
       <main className="admin-page-content">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 }
