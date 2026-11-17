@@ -80,6 +80,31 @@ function loadRooms() {
   });
 }
 
+function loadBookings() {
+  const savedBookings = loadData("rrBookings", null);
+  const bookingDataVersion = localStorage.getItem("rrBookingsDataVersion");
+
+  if (!Array.isArray(savedBookings)) {
+    localStorage.setItem("rrBookingsDataVersion", "1");
+    return initialBookings;
+  }
+
+  if (bookingDataVersion !== "1") {
+    const savedIds = savedBookings.map((booking) => String(booking.id));
+    const demoBookings = initialBookings.filter(
+      (booking) => !savedIds.includes(String(booking.id))
+    );
+    const updatedBookings = [...savedBookings, ...demoBookings];
+
+    localStorage.setItem("rrBookings", JSON.stringify(updatedBookings));
+    localStorage.setItem("rrBookingsDataVersion", "1");
+
+    return updatedBookings;
+  }
+
+  return savedBookings;
+}
+
 function loadCustomers() {
   const savedCustomers = loadData("rrCustomers", null);
 
@@ -152,7 +177,7 @@ export function HotelProvider({ children }) {
   );
 
   const [bookings, setBookings] = useState(() =>
-    loadData("rrBookings", initialBookings)
+    loadBookings()
   );
 
   const [customers, setCustomers] = useState(() =>
