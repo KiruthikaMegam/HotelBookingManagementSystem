@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import { HotelProvider } from "./context/HotelContext";
 import Navbar from "./components/Navbar";
@@ -38,7 +38,7 @@ function App() {
           <Route path="/confirmation" element={<><Navbar /><Confirmation /><Footer /></>} />
 
           <Route path="/login" element={<><Navbar /><Login /><Footer /></>} />
-          <Route path="/admin/login" element={<><Navbar /><Login /><Footer /></>} />
+          <Route path="/admin/login" element={<Navigate to="/login" replace />} />
           <Route path="/register" element={<><Navbar /><Register /><Footer /></>} />
 
           <Route path="/my-bookings" element={<><Navbar /><MyBookings /><Footer /></>} />
