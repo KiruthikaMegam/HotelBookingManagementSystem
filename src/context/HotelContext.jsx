@@ -196,12 +196,7 @@ export function HotelProvider({ children }) {
       newCustomer
     ]);
 
-    setCurrentCustomerId(newCustomer.id);
-
-    localStorage.setItem(
-      "rrCustomerLoggedIn",
-      "true"
-    );
+    // Registration creates the account but does not sign the customer in.
 
     return {
       success: true,
