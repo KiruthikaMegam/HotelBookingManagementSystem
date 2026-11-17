@@ -8,7 +8,7 @@ export default function AdminLayout() {
 
   function handleLogout() {
     localStorage.removeItem("rrAdminLoggedIn");
-    navigate("/admin/login");
+    navigate("/login", { replace: true });
   }
 
   const menuItems = [
