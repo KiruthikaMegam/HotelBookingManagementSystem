@@ -1,12 +1,21 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useHotel } from "../context/HotelContext";
 import "./Navbar.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const { currentCustomerId, logoutCustomer } = useHotel();
 
   function closeMenu() {
     setMenuOpen(false);
+  }
+
+  function handleLogout() {
+    logoutCustomer();
+    closeMenu();
+    navigate("/login", { replace: true });
   }
 
   return (
@@ -35,9 +44,22 @@ export default function Navbar() {
           <NavLink to="/about" onClick={closeMenu}>About</NavLink>
           <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
 
-          <Link to="/login" className="navbar-login" onClick={closeMenu}>
-            Login
-          </Link>
+          {currentCustomerId ? (
+            <>
+              <NavLink to="/profile" onClick={closeMenu}>Profile</NavLink>
+              <button
+                type="button"
+                className="navbar-login navbar-logout"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className="navbar-login" onClick={closeMenu}>
+              Login
+            </Link>
+          )}
         </nav>
       </div>
     </header>

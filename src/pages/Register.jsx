@@ -81,7 +81,7 @@ export default function Register() {
       return;
     }
 
-    navigate("/my-bookings", { replace: true });
+    navigate("/login", { replace: true });
   }
 
   return (
