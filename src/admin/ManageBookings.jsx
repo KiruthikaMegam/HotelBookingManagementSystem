@@ -162,85 +162,64 @@ export default function ManageBookings() {
             <p>There are no reservations matching your search.</p>
           </div>
         ) : (
-          <div className="booking-table-wrapper">
-            <table className="booking-table">
-              <thead>
-                <tr>
-                  <th>Booking ID</th>
-                  <th>Guest</th>
-                  <th>Room</th>
-                  <th>Check In / Out</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                  <th>Payment</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
+          <div className="booking-card-grid">
+            {filteredBookings.map((booking) => (
+              <article className="booking-card" key={booking.id}>
+                <div className="booking-card-top">
+                  <div>
+                    <span className="booking-card-label">BOOKING ID</span>
+                    <h3>#{booking.id}</h3>
+                  </div>
+                  <span className={`booking-status ${getStatusClass(booking.status)}`}>
+                    {booking.status || "Pending"}
+                  </span>
+                </div>
 
-              <tbody>
-                {filteredBookings.map((booking) => (
-                  <tr key={booking.id}>
-                    <td>
-                      <strong>#{booking.id}</strong>
-                    </td>
+                <div className="booking-card-guest">
+                  <div className="booking-avatar">
+                    {(booking.guestName || booking.guest?.name || "G").charAt(0).toUpperCase()}
+                  </div>
+                  <div>
+                    <strong>{booking.guestName || booking.guest?.name || "Guest"}</strong>
+                    <small>{booking.email || booking.guest?.email || "No email"}</small>
+                  </div>
+                </div>
 
-                    <td>
-                      <div className="booking-guest">
-                        <div className="booking-avatar">
-                          {(booking.guestName || booking.guest?.name || "G")
-                            .charAt(0).toUpperCase()}
-                        </div>
+                <div className="booking-card-details">
+                  <div>
+                    <span>Room</span>
+                    <strong>{getRoomName(booking.roomId)}</strong>
+                  </div>
+                  <div>
+                    <span>Check-in</span>
+                    <strong>{booking.checkIn || "-"}</strong>
+                  </div>
+                  <div>
+                    <span>Check-out</span>
+                    <strong>{booking.checkOut || "-"}</strong>
+                  </div>
+                  <div>
+                    <span>Payment</span>
+                    <strong className={booking.paymentStatus === "Paid" ? "booking-paid-text" : "booking-unpaid-text"}>
+                      {booking.paymentStatus || "Unpaid"}
+                    </strong>
+                  </div>
+                </div>
 
-                        <div>
-                          <strong>
-                            {booking.guestName || booking.guest?.name || "Guest"}
-                          </strong>
-                          <small>
-                            {booking.email || booking.guest?.email || "No email"}
-                          </small>
-                        </div>
-                      </div>
-                    </td>
-
-                    <td>{getRoomName(booking.roomId)}</td>
-
-                    <td>
-                      <div className="booking-dates">
-                        <span>{booking.checkIn}</span>
-                        <small>to {booking.checkOut}</small>
-                      </div>
-                    </td>
-
-                    <td>
-                      <strong>
-                        ₹{Number(booking.totalPrice || 0).toLocaleString("en-IN")}
-                      </strong>
-                    </td>
-
-                    <td>
-                      <span className={`booking-status ${getStatusClass(booking.status)}`}>
-                        {booking.status || "Pending"}
-                      </span>
-                    </td>
-
-                    <td>
-                      <span className={`payment-status ${booking.paymentStatus === "Paid" ? "payment-paid" : "payment-unpaid"}`}>
-                        {booking.paymentStatus || "Unpaid"}
-                      </span>
-                    </td>
-
-                    <td>
-                      <button
-                        className="booking-view-btn"
-                        onClick={() => setSelectedBooking(booking)}
-                      >
-                        View
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                <div className="booking-card-bottom">
+                  <div>
+                    <span>Total Amount</span>
+                    <strong>₹{Number(booking.totalPrice || 0).toLocaleString("en-IN")}</strong>
+                  </div>
+                  <button
+                    className="booking-view-btn"
+                    onClick={() => setSelectedBooking(booking)}
+                  >
+                    View Details <span>→</span>
+                  </button>
+                </div>
+              </article>
+            ))}
           </div>
         )}
 
