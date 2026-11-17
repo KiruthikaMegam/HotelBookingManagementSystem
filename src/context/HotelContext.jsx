@@ -52,7 +52,32 @@ function loadRooms() {
     return updatedRooms;
   }
 
-  return savedRooms;
+  return savedRooms.map((room) => {
+    const defaultRoom = initialRooms.find(
+      (item) => Number(item.id) === Number(room.id)
+    );
+    const savedPrice = Number(room.price);
+    const savedOriginalPrice = Number(room.originalPrice);
+    const savedCapacity = Number(room.capacity);
+
+    return {
+      ...room,
+      price:
+        room.price !== null && Number.isFinite(savedPrice)
+          ? savedPrice
+          : room.originalPrice !== null && Number.isFinite(savedOriginalPrice)
+            ? savedOriginalPrice
+            : defaultRoom?.price || 0,
+      originalPrice:
+        room.originalPrice !== null && Number.isFinite(savedOriginalPrice)
+          ? savedOriginalPrice
+          : defaultRoom?.originalPrice || defaultRoom?.price || savedPrice || 0,
+      capacity:
+        room.capacity !== null && Number.isFinite(savedCapacity)
+          ? savedCapacity
+          : defaultRoom?.capacity || 2
+    };
+  });
 }
 
 function loadCustomers() {
@@ -333,16 +358,19 @@ export function HotelProvider({ children }) {
   // Update room.
   function updateRoom(id, updatedData) {
     setRooms((previousRooms) =>
-      previousRooms.map((room) =>
-        room.id === Number(id)
-          ? {
-              ...room,
-              ...updatedData,
-              price: Number(updatedData.price),
-              capacity: Number(updatedData.capacity)
-            }
-          : room
-      )
+      previousRooms.map((room) => {
+        if (room.id !== Number(id)) {
+          return room;
+        }
+
+        return {
+          ...room,
+          ...updatedData,
+          price: updatedData.price !== undefined ? Number(updatedData.price) : room.price,
+          originalPrice: updatedData.originalPrice !== undefined ? Number(updatedData.originalPrice) : room.originalPrice,
+          capacity: updatedData.capacity !== undefined ? Number(updatedData.capacity) : room.capacity
+        };
+      })
     );
 
     setMessage("Room updated successfully!");
