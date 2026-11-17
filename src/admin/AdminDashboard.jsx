@@ -217,63 +217,39 @@ export default function AdminDashboard() {
               <p>New customer reservations will appear here.</p>
             </div>
           ) : (
-            <div className="admin-table-wrapper">
-              <table className="admin-table">
-                <thead>
-                  <tr>
-                    <th>Booking ID</th>
-                    <th>Guest</th>
-                    <th>Room</th>
-                    <th>Check In</th>
-                    <th>Check Out</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
+            <div className="recent-booking-grid">
+              {recentBookings.map((booking) => {
+                const room = rooms.find(
+                  (item) => String(item.id) === String(booking.roomId)
+                );
 
-                <tbody>
-                  {recentBookings.map((booking) => {
-                    const room = rooms.find(
-                      (item) =>
-                        String(item.id) === String(booking.roomId)
-                    );
-
-                    return (
-                      <tr key={booking.id}>
-                        <td>
-                          <strong>#{booking.id}</strong>
-                        </td>
-
-                        <td>
-                          {booking.guestName ||
-                            booking.guest?.name ||
-                            "Guest"}
-                        </td>
-
-                        <td>{room ? room.name : "Room"}</td>
-
-                        <td>{booking.checkIn}</td>
-
-                        <td>{booking.checkOut}</td>
-
-                        <td>
-                          ₹{Number(booking.totalPrice || 0).toLocaleString("en-IN")}
-                        </td>
-
-                        <td>
-                          <span
-                            className={`admin-status ${
-                              (booking.status || "Pending").toLowerCase()
-                            }`}
-                          >
-                            {booking.status || "Pending"}
-                          </span>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                return (
+                  <article className="recent-booking-card" key={booking.id}>
+                    <div className="recent-booking-card-top">
+                      <span>#{booking.id}</span>
+                      <span className={`admin-status ${(booking.status || "Pending").toLowerCase()}`}>
+                        {booking.status || "Pending"}
+                      </span>
+                    </div>
+                    <h3>{booking.guestName || booking.guest?.name || "Guest"}</h3>
+                    <p>{booking.email || booking.guest?.email || "Customer reservation"}</p>
+                    <div className="recent-booking-meta">
+                      <div>
+                        <span>Room</span>
+                        <strong>{room ? room.name : booking.roomName || "Room"}</strong>
+                      </div>
+                      <div>
+                        <span>Stay</span>
+                        <strong>{booking.checkIn || "-"} – {booking.checkOut || "-"}</strong>
+                      </div>
+                    </div>
+                    <div className="recent-booking-card-bottom">
+                      <span>Total Amount</span>
+                      <strong>₹{Number(booking.totalPrice || 0).toLocaleString("en-IN")}</strong>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           )}
         </section>
