@@ -199,3 +199,12 @@
     padding: 19px;
   }
 }
+
+/* Consistent settings page spacing and card presentation */
+.admin-settings-page{max-width:1380px;margin:0 auto;padding:12px 0 55px}
+.settings-page-heading{margin-bottom:30px}
+.settings-page-heading h1{font-size:clamp(28px,3vw,36px)}
+.settings-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch}
+.settings-card{width:100%;min-width:0;border-radius:15px;padding:25px;box-shadow:0 7px 24px rgba(25,63,55,.045)}
+.settings-danger-card{grid-column:1/-1}
+@media(max-width:700px){.admin-settings-page{padding:5px 0 35px}.settings-layout{grid-template-columns:1fr}.settings-danger-card{grid-column:auto}.settings-card{padding:20px}}
