@@ -192,3 +192,21 @@
     font-size: 7px;
   }
 }
+
+.navbar-links .navbar-logout {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.navbar-links .navbar-logout:hover {
+  background: #183b39;
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .navbar-links .navbar-logout {
+    width: 100%;
+    margin-top: 15px;
+  }
+}
