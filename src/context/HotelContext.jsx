@@ -29,6 +29,32 @@ function loadData(key, defaultData) {
   }
 }
 
+
+function loadRooms() {
+  const savedRooms = loadData("rrRooms", null);
+  const roomDataVersion = localStorage.getItem("rrRoomsDataVersion");
+
+  if (!Array.isArray(savedRooms)) {
+    localStorage.setItem("rrRoomsDataVersion", "2");
+    return initialRooms;
+  }
+
+  if (roomDataVersion !== "2") {
+    const savedIds = savedRooms.map((room) => Number(room.id));
+    const newRooms = initialRooms.filter(
+      (room) => Number(room.id) >= 9 && !savedIds.includes(Number(room.id))
+    );
+    const updatedRooms = [...savedRooms, ...newRooms];
+
+    localStorage.setItem("rrRooms", JSON.stringify(updatedRooms));
+    localStorage.setItem("rrRoomsDataVersion", "2");
+
+    return updatedRooms;
+  }
+
+  return savedRooms;
+}
+
 function loadCustomers() {
   const savedCustomers = loadData("rrCustomers", null);
 
@@ -97,7 +123,7 @@ function loadCurrentCustomerId(customers) {
 
 export function HotelProvider({ children }) {
   const [rooms, setRooms] = useState(() =>
-    loadData("rrRooms", initialRooms)
+    loadRooms()
   );
 
   const [bookings, setBookings] = useState(() =>

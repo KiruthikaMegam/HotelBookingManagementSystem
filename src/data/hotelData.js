@@ -276,6 +276,145 @@ export const initialRooms = [
       "Room Service",
       "Breakfast Included"
     ]
+  },
+
+  {
+    id: 9,
+    name: "Deluxe Balcony Room",
+    type: "Deluxe",
+    price: 3900,
+    originalPrice: 4800,
+    capacity: 2,
+    beds: "1 Queen Bed",
+    size: "380 sq.ft",
+    rating: 4.7,
+    reviews: 72,
+    location: "Private Balcony",
+    available: true,
+    featured: false,
+    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=900",
+    images: [
+      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=900",
+      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900",
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900"
+    ],
+    description: "A bright and peaceful room with a private balcony, elegant furnishings and relaxing resort surroundings.",
+    amenities: ["Free Wi-Fi", "Air Conditioning", "Queen Size Bed", "Private Balcony", "Smart TV", "Tea and Coffee Maker", "Room Service", "Private Bathroom"]
+  },
+  {
+    id: 10,
+    name: "Premium Lake View Room",
+    type: "Premium",
+    price: 5200,
+    originalPrice: 6200,
+    capacity: 3,
+    beds: "1 King Bed + Sofa Bed",
+    size: "460 sq.ft",
+    rating: 4.8,
+    reviews: 91,
+    location: "Lake View",
+    available: true,
+    featured: true,
+    image: "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?w=900",
+    images: [
+      "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?w=900",
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900",
+      "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=900"
+    ],
+    description: "Wake up to calm lake views in this premium room with a spacious sitting area and thoughtful modern comforts.",
+    amenities: ["Free Wi-Fi", "Air Conditioning", "King Size Bed", "Sofa Bed", "Lake View", "Smart TV", "Mini Refrigerator", "Breakfast Included"]
+  },
+  {
+    id: 11,
+    name: "Family Garden Suite",
+    type: "Family",
+    price: 7200,
+    originalPrice: 8500,
+    capacity: 6,
+    beds: "2 Queen Beds + Sofa Bed",
+    size: "720 sq.ft",
+    rating: 4.9,
+    reviews: 88,
+    location: "Garden View",
+    available: true,
+    featured: true,
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900",
+    images: [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900",
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=900",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=900"
+    ],
+    description: "Designed for family getaways, this suite offers generous space, flexible sleeping arrangements and a garden-facing sitting area.",
+    amenities: ["Free Wi-Fi", "Air Conditioning", "2 Queen Beds", "Sofa Bed", "Garden View", "Smart TV", "Mini Refrigerator", "Kids Welcome Kit"]
+  },
+  {
+    id: 12,
+    name: "Royal Presidential Suite",
+    type: "Suite",
+    price: 12500,
+    originalPrice: 14500,
+    capacity: 4,
+    beds: "1 King Bed + 2 Single Beds",
+    size: "1100 sq.ft",
+    rating: 5.0,
+    reviews: 43,
+    location: "Panoramic Resort View",
+    available: true,
+    featured: true,
+    image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900",
+    images: [
+      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900",
+      "https://images.unsplash.com/photo-1618220179428-22790b461013?w=900",
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900"
+    ],
+    description: "Our signature suite features separate living and sleeping areas, premium interiors and a panoramic view across the resort.",
+    amenities: ["Free Wi-Fi", "Air Conditioning", "King Size Bed", "Separate Living Room", "Dining Area", "Bathtub", "Mini Bar", "Premium Breakfast", "Priority Room Service"]
+  },
+  {
+    id: 13,
+    name: "Poolside Premium Room",
+    type: "Premium",
+    price: 5800,
+    originalPrice: 6900,
+    capacity: 2,
+    beds: "1 King Bed",
+    size: "430 sq.ft",
+    rating: 4.8,
+    reviews: 67,
+    location: "Poolside",
+    available: true,
+    featured: false,
+    image: "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=900",
+    images: [
+      "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=900",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900",
+      "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=900"
+    ],
+    description: "Stay close to the water in this stylish poolside room with a private patio and easy access to resort leisure facilities.",
+    amenities: ["Free Wi-Fi", "Air Conditioning", "King Size Bed", "Pool Access", "Private Patio", "Smart TV", "Coffee Maker", "Room Service"]
+  },
+  {
+    id: 14,
+    name: "Executive Work & Stay Room",
+    type: "Executive",
+    price: 5400,
+    originalPrice: 6400,
+    capacity: 2,
+    beds: "1 King Bed",
+    size: "480 sq.ft",
+    rating: 4.7,
+    reviews: 52,
+    location: "Quiet Garden Wing",
+    available: true,
+    featured: false,
+    image: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=900",
+    images: [
+      "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=900",
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900",
+      "https://images.unsplash.com/photo-1618220179428-22790b461013?w=900"
+    ],
+    description: "A quiet, comfortable room for guests who need a productive workspace alongside a relaxing resort stay.",
+    amenities: ["Free Wi-Fi", "Air Conditioning", "King Size Bed", "Work Desk", "Ergonomic Chair", "Smart TV", "Coffee Maker", "High-Speed Internet"]
   }
 ];
 

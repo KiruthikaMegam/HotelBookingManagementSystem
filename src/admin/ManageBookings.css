@@ -485,3 +485,19 @@
     font-size: 11px;
   }
 }
+
+
+.booking-detail-list strong {
+  max-width: 65%;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+  .booking-detail-list p {
+    align-items: flex-start;
+  }
+
+  .booking-detail-list strong {
+    max-width: 62%;
+  }
+}

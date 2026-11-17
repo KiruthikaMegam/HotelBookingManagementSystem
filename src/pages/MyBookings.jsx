@@ -304,6 +304,43 @@ export default function MyBookings() {
 
                   </div>
 
+                  <div className="my-booking-extra-grid">
+                    <div>
+                      <span>GUEST NAME</span>
+                      <strong>{booking.guestName || booking.guest?.name || customer.name}</strong>
+                    </div>
+                    <div>
+                      <span>CONTACT</span>
+                      <strong>{booking.phone || booking.guest?.phone || customer.phone || "-"}</strong>
+                    </div>
+                    <div>
+                      <span>PRICE / NIGHT</span>
+                      <strong>₹{Number(booking.pricePerNight || 0).toLocaleString("en-IN")}</strong>
+                    </div>
+                    <div>
+                      <span>ROOM AMOUNT</span>
+                      <strong>₹{Number(booking.roomTotal || booking.totalPrice || 0).toLocaleString("en-IN")}</strong>
+                    </div>
+                    <div>
+                      <span>SERVICE FEE</span>
+                      <strong>₹{Number(booking.serviceFee || 0).toLocaleString("en-IN")}</strong>
+                    </div>
+                    <div className="booking-extra-wide">
+                      <span>EMAIL ADDRESS</span>
+                      <strong>{booking.email || booking.guest?.email || "-"}</strong>
+                    </div>
+                    <div className="booking-extra-wide">
+                      <span>GUEST ADDRESS</span>
+                      <strong>{booking.address || booking.guest?.address || "-"}</strong>
+                    </div>
+                    {booking.requests && (
+                      <div className="booking-extra-wide">
+                        <span>SPECIAL REQUESTS</span>
+                        <strong>{booking.requests}</strong>
+                      </div>
+                    )}
+                  </div>
+
                   <div className="my-booking-bottom">
 
                     <div>
@@ -316,7 +353,7 @@ export default function MyBookings() {
                       </strong>
 
                       <small>
-                        Payment: {booking.paymentStatus}
+                        Payment: {booking.paymentStatus || "Pending"}
                       </small>
                     </div>
 
