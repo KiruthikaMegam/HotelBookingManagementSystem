@@ -688,3 +688,18 @@
     width: 100%;
   }
 }
+
+
+/* Consistent admin room card layout */
+.manage-rooms-page{padding:38px 0 55px;background:transparent}
+.manage-rooms-container{width:min(94%,1380px)}
+.rooms-summary>div,.rooms-management-panel,.manage-room-card{border-radius:15px}
+.rooms-summary>div{padding:21px;box-shadow:0 7px 22px rgba(25,63,55,.045)}
+.rooms-management-panel{padding:25px;box-shadow:0 7px 24px rgba(25,63,55,.045)}
+.manage-room-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.manage-room-card{box-shadow:0 5px 18px rgba(25,63,55,.035)}
+.manage-room-card:hover{box-shadow:0 13px 28px rgba(25,63,55,.1)}
+.manage-room-image{height:205px}
+@media(max-width:1050px){.manage-room-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.manage-rooms-page{padding:28px 0 40px}.manage-rooms-container{width:92%}.rooms-management-panel{padding:18px 13px}.manage-room-grid{grid-template-columns:1fr}.rooms-summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.rooms-summary>div{padding:16px}.manage-room-actions{flex-wrap:wrap}.manage-room-actions button{min-width:28%}}
