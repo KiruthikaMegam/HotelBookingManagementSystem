@@ -44,9 +44,13 @@ export default function Navbar({ isAdmin = false }) {
         <nav className={`navbar-links ${menuOpen ? "active" : ""}`}>
           {isAdmin ? (
             <>
-              <NavLink to="/admin" end onClick={closeMenu}>Dashboard</NavLink>
+              <NavLink to="/" end onClick={closeMenu}>Home</NavLink>
+              <NavLink to="/rooms" onClick={closeMenu}>Rooms</NavLink>
+              <NavLink to="/admin/bookings" onClick={closeMenu}>Bookings</NavLink>
+              <NavLink to="/about" onClick={closeMenu}>About</NavLink>
+              <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
+              <NavLink to="/admin" onClick={closeMenu}>Dashboard</NavLink>
               <NavLink to="/admin/rooms" onClick={closeMenu}>Manage Rooms</NavLink>
-              <NavLink to="/admin/bookings" onClick={closeMenu}>Manage Bookings</NavLink>
               <NavLink to="/admin/settings" onClick={closeMenu}>Settings</NavLink>
               <button type="button" className="navbar-login navbar-logout" onClick={handleLogout}>
                 Logout
