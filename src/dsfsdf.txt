@@ -1,0 +1,63 @@
+RR-Resort/
+│
+├── public/
+│   └── assets/
+│       ├── logo.png
+│       ├── resort-hero.jpg
+│       ├── room1.jpg
+│       ├── room2.jpg
+│       └── room3.jpg
+│
+├── src/
+│   ├── assets/
+│   │
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Navbar.css
+│   │   ├── Footer.jsx
+│   │   ├── Footer.css
+│   │   ├── Hero.jsx
+│   │   ├── Hero.css
+│   │   ├── SearchBar.jsx
+│   │   ├── SearchBar.css
+│   │   ├── RoomCard.jsx
+│   │   ├── RoomCard.css
+│   │   ├── Sidebar.jsx
+│   │   └── Sidebar.css
+│   │
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Home.css
+│   │   ├── Rooms.jsx
+│   │   ├── Rooms.css
+│   │   ├── RoomDetails.jsx
+│   │   ├── RoomDetails.css
+│   │   ├── Booking.jsx
+│   │   ├── Booking.css
+│   │   ├── Confirmation.jsx
+│   │   ├── Confirmation.css
+│   │   ├── MyBookings.jsx
+│   │   ├── MyBookings.css
+│   │   ├── Profile.jsx
+│   │   └── Profile.css
+│   │
+│   ├── admin/
+│   │   ├── AdminDashboard.jsx
+│   │   ├── AdminDashboard.css
+│   │   ├── ManageRooms.jsx
+│   │   ├── ManageRooms.css
+│   │   ├── ManageBookings.jsx
+│   │   └── ManageBookings.css
+│   │
+│   ├── context/
+│   │   └── HotelContext.jsx
+│   │
+│   ├── data/
+│   │   └── hotelData.js
+│   │
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+│
+└── package.json
